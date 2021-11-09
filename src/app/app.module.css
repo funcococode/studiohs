@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
 *{
 	scroll-snap-type: y mandatory; 
 }
 .main {
     @apply p-0 md:p-24 min-h-screen w-full  grid grid-rows-6 gap-16;
-    background-image: radial-gradient(rgba(255, 0, 0, 0.6) 1px,transparent 0),radial-gradient(rgba(75, 12, 12, 0.7) 1px,transparent 0);
+    background-image: radial-gradient(rgba(240, 110, 110, 0.6) 1px,transparent 0),radial-gradient(rgba(173, 62, 62, 0.7) 1px,transparent 0);
     background-size: 50px 50px;
     background-position: 0 0, 25px 25px;
 	background-attachment: fixed;
@@ -165,6 +166,7 @@ main,section{
 	transform: translateY(-50%);
 	color: rgba(155, 198, 255, 0);
 	-webkit-text-stroke: 2px rgba(155, 198, 255, 0.205);
+	
 }
 .servicesContainer::before{
 	position: absolute;
@@ -231,6 +233,7 @@ main,section{
 	display:grid;
 	gap:10px;
 	padding-left:96px;
+	
 }
 .serviceNumber{
 	color: #ef4444;
@@ -242,6 +245,7 @@ main,section{
 	font-weight: 600;
 	line-height: calc(1.2 * 34px);
 	width:30%;
+	font-family: "Noto Serif Display" !important;
 }
 .serviceDesc{
 	width:50%;
