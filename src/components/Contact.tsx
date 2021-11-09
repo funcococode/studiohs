@@ -1,7 +1,7 @@
 import React ,{useState,useEffect} from 'react'
 import styles from "../app/app.module.css";
 import { ArrowRightIcon } from '@heroicons/react/outline';
-import { check } from 'prettier';
+import footerImg from "../app/footerImg.svg";
 const Contact = () => {
     let [isChecked, setIsChecked] = useState(false);
     const handleChange = () => {
@@ -10,23 +10,26 @@ const Contact = () => {
     return (
         <section className={styles.contactSection}>
             <h2 className={styles.sectionTitle}>Get in touch</h2>
-            <form className={styles.contactForm}>
-                <p>
-                    Hi, My name is <input className={styles.contactInput} type="text" id="fullName" placeholder="Type Here..." />
-                </p>
-                <p>
-                    My Email address is <input className={styles.contactInput} type="email" id="email" placeholder="Enter your email address" />
-                </p>
-                <p>
-                    You can call/text me at <input className={styles.contactInput} type="text" id="mobile" placeholder="Enter your mobile number" />
-                </p>
-                <br />
-                <p>
-                    <input checked={isChecked} onChange={handleChange} type="checkbox" id="checkbox" className={styles.contactCheckbox} />
-                    <label htmlFor="checkbox">{isChecked ? <p><span style={{textDecoration:"line-through",color:'lightgrey',marginRight:"10px"}}>Can we call you in office hours?</span>Okay Sure!</p> : "Can we call you in office hours?"}</label>
-                </p>
-                <button className={styles.formButton}>Get Enquiry <span><ArrowRightIcon /></span></button>
-            </form>
+            <div className={styles.contactWrapper}>
+                <form className={styles.contactForm}>
+                    <p>
+                        Hi, My name is <input className={styles.contactInput} type="text" id="fullName" placeholder="Type Here..." />
+                    </p>
+                    <p>
+                        My Email address is <input className={styles.contactInput} type="email" id="email" placeholder="Enter your email address" />
+                    </p>
+                    <p>
+                        You can call/text me at <input className={styles.contactInput} type="text" id="mobile" placeholder="Enter your mobile number" />
+                    </p>
+                    <br />
+                    <p>
+                        <input checked={isChecked} onChange={handleChange} type="checkbox" id="checkbox" className={styles.contactCheckbox} />
+                        <label htmlFor="checkbox">{isChecked ? <p><span style={{textDecoration:"line-through",color:'lightgrey',marginRight:"10px"}}>Can we call you in office hours?</span>Okay Sure!</p> : "Can we call you in office hours?"}</label>
+                    </p>
+                    <button className={styles.formButton}>Get Enquiry <span><ArrowRightIcon /></span></button>
+                </form>
+                
+            </div>
             <footer className={styles.contactFooter}>
                 <ul>
                     <li className={styles.footerListItem}>StudioHS</li>
