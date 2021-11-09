@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
 *{
 	scroll-snap-type: y mandatory; 
+	outline:none !important;
 }
 .main {
     @apply p-0 md:p-24 min-h-screen w-full  grid grid-rows-6 gap-16;
@@ -34,7 +35,7 @@ nav{
 	@apply grid grid-flow-col gap-3 w-full col-span-1;
 }
 .navList > li{
-	@apply rounded-lg py-1 text-green-700 hover:bg-green-300 hover:text-black transition duration-200;
+	@apply rounded-lg py-1 text-blue-700 hover:bg-blue-300 hover:text-black transition duration-200;
 	text-align:center;
 }
 .navIcon{
@@ -45,7 +46,7 @@ nav{
 }
 
 .navSocialIcon{
-	@apply py-2 px-5 rounded-lg  text-green-700 hover:bg-green-300 hover:text-green-700;
+	@apply py-2 px-5 rounded-lg  text-blue-700 hover:bg-blue-300 hover:text-blue-700 cursor-pointer
 }
 
 
@@ -254,4 +255,85 @@ main,section{
 }
 .service__1::after{
 	transform:rotateZ(95deg);
+}
+
+
+
+.contactSection{
+	@apply bg-blue-50 p-24 space-y-10;
+	background-image: radial-gradient(rgba(108, 223, 243, 0.6) 1px,transparent 0),radial-gradient(rgba(77, 223, 179, 0.7) 1px,transparent 0);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+	background-attachment: fixed;
+    -webkit-animation: slide 2s linear infinite;
+    animation: slide 4s linear infinite;
+}
+.contactForm{
+	@apply space-y-10;
+}
+.contactForm > p{
+	@apply text-2xl mr-10 inline-flex gap-10 items-center;
+}
+.contactInput{
+	@apply transition duration-100 border-0 border-b-2 border-black bg-transparent text-center  focus:outline-none focus:ring focus:ring-gray-800 focus:border-transparent focus:placeholder-opacity-0 placeholder-gray-400;
+
+}
+
+.contactForm > p:nth-child(5){
+	@apply flex items-center text-lg
+}
+.contactCheckbox{
+	visibility: hidden;
+	opacity: 0;
+	display: none;
+}
+.contactCheckbox + label{
+	@apply text-gray-500;
+	position: relative;
+	user-select: none;
+	display:grid;
+	align-items: center;
+	padding-left:30px;
+}
+.contactCheckbox:checked + label::before{
+	@apply bg-yellow-500 border-yellow-500 rounded-full
+}
+.contactCheckbox + label::before{
+	position: absolute;
+	content:'';
+	width:20px;
+	height:20px;
+	left:0%;
+	top:50%;
+	transform:translateY(-50%);
+	border:2px solid gray;
+	border-radius: 6px;
+}
+.formButton{
+	@apply bg-gray-700 text-white p-2 px-6 rounded text-sm font-semibold flex items-center gap-4 hover:bg-blue-600 hover:pl-10;
+	transition:all 0.1s;
+
+}
+.formButton > span{
+	display:inline-block;
+	width:20px;
+}
+
+
+.contactFooter{
+	@apply grid bg-blue-200 p-12 shadow-lg rounded;
+	grid-template-columns:repeat(5,1fr);
+
+    background-image: radial-gradient(rgba(240, 110, 110, 0.6) 1px,transparent 0),radial-gradient(rgba(173, 62, 62, 0.7) 1px,transparent 0);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+	background-attachment: fixed;
+    -webkit-animation: slide 2s linear infinite;
+    animation: slide 4s linear infinite;
+}
+.contactFooter > ul{
+	@apply grid gap-2 px-4;
+}
+.footerListItem{
+	@apply text-xs text-gray-800 font-semibold
 }
