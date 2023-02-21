@@ -1,7 +1,16 @@
-const forms = require("@tailwindcss/forms");
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
-  purge: ["./*.html", "./src/**/*.{css}"],
-  plugins: [forms],
-};
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      backgroundImage: {
+        'landing-bg': "url('/bg.jpg')",
+      }
+    },
+  },
+  plugins: [],
+}

@@ -1,98 +1,27 @@
-<p align='center'>
-  <img src='https://i.imgur.com/KVmyXyo.png' alt='Vital - Vite Starter Template' width='600'/>
-</p>
+# Next.js + Tailwind CSS Example
 
-<p align='center'>
-Mocking up web app with <b>Vital</b><sup><em>(speed)</em></sup><br>
-</p>
+This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-<br>
+## Deploy your own
 
-<p align='center'>
-<a href="https://vital.josepvidal.dev">Live Demo</a>
-</p>
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-<br>
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
 
-## Features
+## How to use
 
-- ⚡️ [React 17](https://beta.reactjs.org/)
-- 🦾 TypeScript, of course
-- 🫀 [Jest](https://jestjs.io/) - unitary testing made easy
-- 🎨 [Tailwind with JIT](https://tailwindcss.com/) - next generation utility-first CSS
-- 🪢 [CSS Modules](https://github.com/css-modules/css-modules)
-- 👑 [Atomic Design organization](https://bradfrost.com/blog/post/atomic-web-design/)
-- 🗂 [Absolute imports](https://github.com/vitejs/vite/issues/88#issuecomment-762415200)
-- 😃 [Hero icons](https://heroicons.com/)
-- ☁️ Deploy on Netlify, zero-config
-
-
-### Coding Style
-
-- [ESLint](https://eslint.org/) - configured for React/Hooks & TypeScript
-- [Prettier](https://prettier.io/)
-
-### Dev tools
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [Commit lint](https://github.com/conventional-changelog/commitlint) - helps your team adhering to a commit convention
-- [Netlify](https://www.netlify.com/) - zero-config deployment
-
-## Try it now!
-
-### GitHub Template
-
-[Create a repo from this template on GitHub](https://github.com/jvidalv/vital/generate).
-
-### Clone to local
-
-If you prefer to do it manually with the cleaner git history
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
 
 ```bash
-npx degit jvidalv/vital my-vital-app
-cd my-vital-app
-yarn # If you don't have yarn installed, run: npm install -g yarn
+npx create-next-app --example with-tailwindcss with-tailwindcss-app
 ```
-
-## Checklist
-
-When you use this template, try follow the checklist to update your info properly
-
-- [ ] Rename `name` and `author` fields in `package.json`
-- [ ] Change the author name in `LICENSE`
-- [ ] Change the title in `index.html`
-- [ ] Change the favicon in `public`
-- [ ] Modify the manifest in `public`
-- [ ] Clean up the README's 
-
-And, enjoy :)
-
-## Usage
-
-### Development
-
-Just run and visit http://localhost:3000
 
 ```bash
-yarn start
+yarn create next-app --example with-tailwindcss with-tailwindcss-app
 ```
-
-### Build
-
-To build the App, run
 
 ```bash
-yarn build
+pnpm create next-app --example with-tailwindcss with-tailwindcss-app
 ```
 
-And you will see the generated file in `dist` that ready to be served.
-
-### Deploy on Netlify
-
-Go to [Netlify](https://app.netlify.com/start) and select your repository, `OK` along the way, and your App will be live in a minute.
-
-## Why
-
-I have created several React apps recently. Setting the configs up is kinda the bottleneck for me to make the ideas simply come true within a very short time.
-
-So I made this starter template for myself to create apps more easily, along with some good practices that I have learned from making those apps. Feel free to tweak it or even maintains your own forks.
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#blob{
+    height: 300px;
+    aspect-ratio: 1;
+    position: fixed;
+    left : 50%;
+    top: 50%;
+    translate: -50% -50%;
+    animation: blobAnim 20s infinite ;
+}
+
+@keyframes blobAnim {
+    0%{
+        rotate: 0deg;
+    }
+    50%{
+        scale: 1 1.25;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
