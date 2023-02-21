@@ -160,7 +160,7 @@ const Work : NextPage = () => {
                                         items-center
                                         gap-5
                                         group
-
+                                        hover:border-gray-500
                                     `}
                             >
                                 <aside className="text-xl">
