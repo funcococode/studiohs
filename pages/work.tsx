@@ -64,7 +64,7 @@ const Work : NextPage = () => {
                         Our Work
                     </h1>
                     <Menu>
-                        <Menu.Button className={`grid transition relative border hover:scale-110 bg-white shadow-lg h-fit px-5 py-2 rounded-lg grid-flow-col items-center justify-between gap-2`}>
+                        <Menu.Button className={`mt-10 lg:mt-0 grid transition relative border hover:scale-110 bg-white shadow-lg w-fit h-fit px-5 py-2 rounded-lg grid-flow-col items-center justify-between gap-2`}>
                             <TbFilter /> 
                             {filter == '' && 'All'}
                             {filter == 'Song' && 'Originals & Covers'}
@@ -80,7 +80,7 @@ const Work : NextPage = () => {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                             >
-                            <Menu.Items className={`overflow-hidden grid absolute translate-y-10 right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
+                            <Menu.Items className={`overflow-hidden grid absolute lg:translate-y-10 lg:right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
                                 <Menu.Item>
                                     <a
                                         className={`p-4 hover:bg-indigo-500 hover:text-white flex items-center justify-between gap-3 ${filter == '' && 'bg-indigo-400 text-white'}`}

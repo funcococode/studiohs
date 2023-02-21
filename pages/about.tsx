@@ -13,7 +13,7 @@ const About : NextPage = () => {
             exit = {{opacity: 0, x:-200}}
             className="min-h-screen px-16 ">
             <nav className="py-10 grid lg:grid-cols-2 items-center">
-                <Link href={'/'} className="cursor-pointer col-span-1 p-2 px-5 w-fit gap-6 items-center rounded-xl grid grid-flow-col place-items-center hover:bg-black hover:text-white -translate-x-1/2 text-lg">
+                <Link href={'/'} className="cursor-pointer col-span-1 p-2 px-5 w-fit gap-6 items-center rounded-xl grid grid-flow-col place-items-center hover:bg-black hover:text-white -translate-x-1/3 text-lg">
                     <TbArrowBackUp />
                     Home
                 </Link>
