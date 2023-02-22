@@ -1,10 +1,76 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
-import { TbArrowBackUp, TbArrowUpRight } from "react-icons/tb";
+import { TbArrowBackUp, TbArrowUpRight, TbLoader, TbMoodSmile } from "react-icons/tb";
 import { navItemParentVariant, navItemVariant } from "../helpers/animation";
+import { useEffect, useRef, useState } from "react";
+import { ReactElement } from "react-markdown/lib/react-markdown";
+import {Email} from '../public/smtp';
+interface EmailPayload{
+    fullname : string,
+    email : string,
+    budget : number,
+    category : string,
+    message : string 
+}
 
 const Contact:NextPage = () => {
+    const [payLoad, setPayload] = useState<EmailPayload | null>(null);
+    const [form, setForm] = useState<HTMLElement | null>(null);
+    const [isSending, setIsSending] = useState<boolean>(false);
+    const [mailSent, setMailSent] = useState<boolean>(false);
+    useEffect(() => {
+        setForm(document.getElementById('form'))
+    },[])
+    
+    const handleClick = (e : MouseEvent) => {
+        e.preventDefault();
+        const {fullname, email, budget, category, message} = form?.elements
+        if(fullname.value != '' && email.value != '' && budget.value != '' && category.value != '' && message.value != ''){
+            const emailPL = {
+                fullname: fullname.value,
+                email: email.value,
+                budget: budget.value,
+                category: category.value,
+                message: message.value 
+            }
+            sendMail(emailPL);
+            setIsSending(true);
+            return;
+        }else {
+            return console.log('Fill all the fields');
+        }
+    }
+
+    const sendMail = (payLoad : EmailPayload) => {
+        console.log(payLoad);
+        let mailSubject = `${payLoad.fullname} - ${payLoad.category}`;
+        let body = `
+                        Name : <b>${payLoad.fullname}</b><br/>
+                        Subject : <b>${mailSubject}</b><br/>
+                        Email : <b>${payLoad.email}</b><br/>
+                        Budget : <b>${payLoad.budget}</b><br/><br/>
+                        ${payLoad.message}
+                    `;
+        const randomSeconds = Math.round(Math.random() * (3000 - 1000) + 1000);
+
+
+        setTimeout(function(){
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "query.studiohr@gmail.com",
+                Password : "0E7EC3A1D8323E841DB9B3A3A193574A64D8",
+                To : 'connect@studiohr.in',
+                From : "query.studiohr@gmail.com",
+                Subject : mailSubject,
+                Body : body,
+            }).then(() => {
+                setMailSent(true)
+                setIsSending(false);
+            });
+        },randomSeconds)
+    }
+
     return (
         <motion.section 
             initial = {{opacity: 0, x:-200}}
@@ -48,41 +114,60 @@ const Contact:NextPage = () => {
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates officia eum blanditiis labore dolorum facere harum doloremque quos id est laudantium, quas quod. Vitae dolorem, voluptate fugiat quibusdam, sequi at placeat impedit consectetur amet molestias molestiae recusandae accusantium porro non cupiditate, possimus repellendus hic cumque laboriosam officia nisi! Ex, reiciendis.
                     </motion.p>
                 </div>
-                <form action="" className="grid gap-5">
-                    <div className="grid lg:grid-cols-2 gap-10">
-                        <div className="grid gap-4">
-                            <label htmlFor="fullname">Your Name</label>
-                            <input type="text" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" />
+                <AnimatePresence>
+                    {!mailSent && <motion.form initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} id='form' action="" className="grid gap-5">
+                        <div className="grid lg:grid-cols-2 gap-10">
+                            <div className="grid gap-4">
+                                <label htmlFor="fullname">Your Name</label>
+                                <input id="fullname" name='fullname' type="text" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" required/>
+                            </div>
+                            <div className="grid gap-4">
+                                <label htmlFor="email">Your Email</label>
+                                <input id='email' name='email' type="email" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" required/>
+                            </div>
                         </div>
-                        <div className="grid gap-4">
-                            <label htmlFor="fullname">Your Email</label>
-                            <input type="email" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" />
+                        <div className="grid lg:grid-cols-2 gap-10 mt-5 lg:mt-0">
+                            <div className="grid gap-4">
+                                <label htmlFor="category">What are you interested in?</label>
+                                <input id='category' name='category' type="text" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" required/>
+                            </div>
+                            <div className="grid gap-4">
+                                <label htmlFor="budget">Project Budget</label>
+                                <input id='budget' name='budget' type="number" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" required/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="grid lg:grid-cols-2 gap-10 mt-5 lg:mt-0">
-                        <div className="grid gap-4">
-                            <label htmlFor="fullname">What are you interested in?</label>
-                            <input type="text" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" />
+                        <div className="grid lg:grid-cols-1 gap-10">
+                            <div className="grid gap-4">
+                                <label htmlFor="message">Message</label>
+                                <textarea id='message' name='message' className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600 " required></textarea>
+                            </div>
                         </div>
-                        <div className="grid gap-4">
-                            <label htmlFor="fullname">Project Budget</label>
-                            <input type="email" className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600" />
+                        <div className="grid lg:grid-cols-3 gap-10">
+                            <div className="grid gap-4">
+                                <button 
+                                    onClick={(e) => handleClick(e)} 
+                                    id='sendButton' 
+                                    className={`bg-gray-800 text-white p-4 rounded flex items-center justify-between gap-5 ${isSending && 'animate-pulse'}`}>
+                                    {isSending ? "Sending..." : "Just Send"}
+                                    {isSending ? <span className="animate-spin"><TbLoader /></span> : <TbArrowUpRight />}
+                                </button>
+                            </div>
+                            <div></div>
+                            <div></div>
                         </div>
-                    </div>
-                    <div className="grid lg:grid-cols-1 gap-10">
-                        <div className="grid gap-4">
-                            <label htmlFor="fullname">Message</label>
-                            <textarea className="bg-gray-100 text-xl p-3 rounded outline-none focus:ring-4 ring-blue-600 "></textarea>
-                        </div>
-                    </div>
-                    <div className="grid lg:grid-cols-3 gap-10">
-                        <div className="grid gap-4">
-                            <button className="bg-gray-800 text-white p-4 rounded flex items-center justify-between gap-5">Just Send <TbArrowUpRight /></button>
-                        </div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </form>
+                    </motion.form>}
+                    {mailSent && 
+                        <motion.p className="font-thin text-4xl px-10 grid place-items-center gap-10">
+                            <span className="text-9xl text-green-600 animate-spin">
+                                <TbMoodSmile/>
+                            </span>
+                            <span>
+                                Thanks for reaching out! <br/>
+                                Someone from our team will connect with you soon.
+                            </span>
+                        </motion.p>
+                    }
+                </AnimatePresence>
             </main>
         </motion.section>
     )

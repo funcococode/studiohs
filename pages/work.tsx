@@ -180,7 +180,7 @@ const Work : NextPage = () => {
             </main>
             {
                 project && 
-                <motion.div layoutId={project.id} className="absolute top-1/4 left-1/3 w-1/3 border bg-white shadow-2xl rounded-lg overflow-hidden z-50" >
+                <motion.div layoutId={project.id} className="absolute h-screen lg:h-auto inset-0 lg:inset-auto lg:top-1/4 lg:left-1/3 lg:w-1/3 border bg-white shadow-2xl rounded-lg overflow-hidden z-50" >
                     <Card project={project} setProject={setProject}/>    
                 </motion.div>
             } 

@@ -42,23 +42,23 @@ const Gallery : NextPage = () => {
             <main className="grid grid-cols-2 gap-5 mb-16">
                 <div className="relative flex gap-x-5">
                     <div className="flex-1 hover:flex-[2] overflow-hidden transition-all">
-                        <img src="imgs/studio 1.jpg" className="object-cover w-[600px] h-[600px] hover:scale-110 transition-all"/>
+                        <img src="imgs/studio 7.jpg" className="object-cover w-[600px] h-[600px] hover:scale-110 transition-all"/>
+                    </div>
+                    <div className="flex-1 hover:flex-[2] transition-all overflow-hidden">
+                        <img src="imgs/studio 9.jpg" className="object-cover w-[600px] h-[600px] hover:scale-110 transition-all"/>
+                    </div>
+                </div>
+                <div className="relative flex gap-x-5">
+                    <div className="flex-1 hover:flex-[2] overflow-hidden transition-all">
+                        <img src="imgs/studio 10.jpg" className="object-cover w-[600px] h-[600px] hover:scale-110 transition-all"/>
                     </div>
                     <div className="flex-1 hover:flex-[2] transition-all overflow-hidden">
                         <img src="imgs/studio 2.jpg" className="object-cover w-[600px] h-[600px] hover:scale-110 transition-all"/>
                     </div>
                 </div>
-                <div className="relative flex gap-x-5">
-                    <div className="flex-1 hover:flex-[2] overflow-hidden transition-all">
-                        <img src="imgs/studio 3.jpg" className="object-cover w-[600px] h-[600px] hover:scale-110 transition-all"/>
-                    </div>
-                    <div className="flex-1 hover:flex-[2] transition-all overflow-hidden">
-                        <img src="imgs/studio 4.jpg" className="object-cover w-[600px] h-[600px] hover:scale-110 transition-all"/>
-                    </div>
-                </div>
                 <div className="relative grid grid-cols-2 gap-5 col-span-2">
                     <div className="transition-all overflow-hidden">
-                        <img src="imgs/studio 5.jpg" className="object-cover w-full h-[600px] hover:scale-110 transition-all"/>
+                        <img src="imgs/studio 4.jpg" className="object-cover w-full h-[600px] hover:scale-110 transition-all"/>
                     </div>
                     <div className="transition-all overflow-hidden">
                         <img src="imgs/studio 6.jpg" className="object-cover w-full h-[600px] hover:scale-110 transition-all"/>
