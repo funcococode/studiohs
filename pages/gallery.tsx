@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
 import { TbArrowBackUp } from "react-icons/tb";

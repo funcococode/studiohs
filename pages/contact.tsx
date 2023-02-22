@@ -4,7 +4,6 @@ import Link from "next/link";
 import { TbArrowBackUp, TbArrowUpRight, TbLoader, TbMoodSmile } from "react-icons/tb";
 import { navItemParentVariant, navItemVariant } from "../helpers/animation";
 import { useEffect, useRef, useState } from "react";
-import { ReactElement } from "react-markdown/lib/react-markdown";
 import {Email} from '../public/smtp';
 interface EmailPayload{
     fullname : string,
