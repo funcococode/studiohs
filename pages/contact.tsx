@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
-import { TbArrowBackUp, TbArrowUpRight, TbLoader, TbMoodSmile } from "react-icons/tb";
+import { TbArrowBackUp, TbArrowUpRight, TbLoader, TbMoodSmile, TbUnderline } from "react-icons/tb";
 import { navItemParentVariant, navItemVariant } from "../helpers/animation";
 import { useEffect, useRef, useState } from "react";
 import {Email} from '../public/smtp';
@@ -15,17 +15,25 @@ interface EmailPayload{
 
 const Contact:NextPage = () => {
     const [payLoad, setPayload] = useState<EmailPayload | null>(null);
-    const [form, setForm] = useState<HTMLElement | null>(null);
+    const [form, setForm] = useState<HTMLFormElement | undefined>(undefined);
     const [isSending, setIsSending] = useState<boolean>(false);
     const [mailSent, setMailSent] = useState<boolean>(false);
+    const formRef = useRef() as React.MutableRefObject<HTMLFormElement>;
     useEffect(() => {
-        setForm(document.getElementById('form'))
+        setForm(formRef.current)
     },[])
     
     const handleClick = (e : MouseEvent) => {
         e.preventDefault();
-        const {fullname, email, budget, category, message} = form?.elements
-        if(fullname.value != '' && email.value != '' && budget.value != '' && category.value != '' && message.value != ''){
+        const formData = new FormData(form);
+        let emailPL: any = [];
+
+        for(const [key,value] of formData){
+            emailPL.push(value)
+        }
+
+        const [fullname, email, category, budget, message] = emailPL
+        if(fullname.value != '' && email.vaue != '' && budget.value != '' && category.value != '' && message.value != ''){
             const emailPL = {
                 fullname: fullname.value,
                 email: email.value,
@@ -42,7 +50,6 @@ const Contact:NextPage = () => {
     }
 
     const sendMail = (payLoad : EmailPayload) => {
-        console.log(payLoad);
         let mailSubject = `${payLoad.fullname} - ${payLoad.category}`;
         let body = `
                         Name : <b>${payLoad.fullname}</b><br/>
@@ -114,7 +121,7 @@ const Contact:NextPage = () => {
                     </motion.p>
                 </div>
                 <AnimatePresence>
-                    {!mailSent && <motion.form initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} id='form' action="" className="grid gap-5">
+                    {!mailSent && <motion.form initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} ref={formRef} id='form' action="" className="grid gap-5">
                         <div className="grid lg:grid-cols-2 gap-10">
                             <div className="grid gap-4">
                                 <label htmlFor="fullname">Your Name</label>
