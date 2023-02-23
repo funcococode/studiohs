@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { TbArrowBackUp, TbArrowUpRight, TbLoader, TbMoodSmile, TbUnderline } from "react-icons/tb";
 import { navItemParentVariant, navItemVariant } from "../helpers/animation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, MouseEvent } from "react";
 import {Email} from '../public/smtp';
 interface EmailPayload{
     fullname : string,
