@@ -116,9 +116,9 @@ const Contact:NextPage = () => {
                         Love to hear from you, <br />
                         Get in touch 
                     </motion.h1>
-                    <motion.p initial={{y: -100,opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: 0.5}} className="font-thin lg:w-2/3 mt-16 mb-16 lg:mb-0">
+                    {/* <motion.p initial={{y: -100,opacity: 0}} animate={{y: 0, opacity: 1}} transition={{delay: 0.5}} className="font-thin lg:w-2/3 mt-16 mb-16 lg:mb-0">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates officia eum blanditiis labore dolorum facere harum doloremque quos id est laudantium, quas quod. Vitae dolorem, voluptate fugiat quibusdam, sequi at placeat impedit consectetur amet molestias molestiae recusandae accusantium porro non cupiditate, possimus repellendus hic cumque laboriosam officia nisi! Ex, reiciendis.
-                    </motion.p>
+                    </motion.p> */}
                 </div>
                 <AnimatePresence>
                     {!mailSent && <motion.form initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} ref={formRef} id='form' action="" className="grid gap-5">
